@@ -1,0 +1,13 @@
+{
+  "type": "roadtocrea:void",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "roadtocrea:void",
+      "lakes": false,
+      "features": false,
+      "layers": [],
+      "structure_overrides": []
+    }
+  }
+}
