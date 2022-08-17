@@ -8,18 +8,24 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.function.Function;
 
 @Mod.EventBusSubscriber(modid = RoadToCrea.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModClientEvents {
     private static boolean inTravelToVoid = false;
+    @Nullable
+    private static LevelAccessor world;
 
     @SubscribeEvent
     public static void onTravelToVoid(EntityTravelToDimensionEvent event) {
@@ -53,5 +59,31 @@ public class ModClientEvents {
         }
         inTravelToVoid = false;
         event.setCanceled(true);
+    }
+
+    @SubscribeEvent
+    public static void playerLoginIn(final PlayerEvent.PlayerLoggedInEvent event) { //listen for "logging in"-event
+        Player player = event.getEntity();
+        assert world != null;
+        if (!world.players().contains(player)) { //check whether the player (who is logging in) is already listed in the list of players on this world
+            MinecraftServer server = player.getServer();
+            if (server == null) return;
+            Level voidDimension = RoadToCrea.getVoidWorld(server).orElseThrow(() -> new RuntimeException("Error getting void dimension")); //if it's not the case (i.e. the player is new to this world), we need to teleport the player to this dimension instead
+            if (voidDimension != null) {
+                player.changeDimension((ServerLevel) voidDimension, new ITeleporter() {
+                    @Override
+                    public Entity placeEntity(Entity entity, ServerLevel currentWorld, ServerLevel destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+                        Entity repositionedEntity = repositionEntity.apply(false);
+                        repositionedEntity.teleportTo(0.5, 0, 0.5);
+                        return repositionedEntity;
+                    }
+                });
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void playerLoadsWorld(final LevelEvent.Load event) { //is called before "playerLoggingIn", so we can collect the world the player is joining
+        world = event.getLevel(); //world is a private static IWorld-variable
     }
 }
