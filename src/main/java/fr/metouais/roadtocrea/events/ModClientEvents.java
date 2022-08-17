@@ -22,7 +22,7 @@ public class ModClientEvents {
     private static boolean inTravelToVoid = false;
 
     @SubscribeEvent
-    public static void onEvent(EntityTravelToDimensionEvent event) {
+    public static void onTravelToVoid(EntityTravelToDimensionEvent event) {
         if (!(event.getEntity() instanceof Player playerEntity)) return;
         String sourceDimension = playerEntity.level.dimension().toString().split(" / ")[1].split("]")[0];
         String targetDimension = event.getDimension().toString().split(" / ")[1].split("]")[0];
