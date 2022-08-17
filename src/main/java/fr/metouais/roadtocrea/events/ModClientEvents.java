@@ -5,6 +5,8 @@ import fr.metouais.roadtocrea.init.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.monitoring.jmx.MinecraftServerStatistics;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -56,6 +58,8 @@ public class ModClientEvents {
                     return repositionedEntity;
                 }
             });
+            ((ServerPlayer) player).setRespawnPosition(voidWorld.dimension(),finalTpPos,0.0f,true,false);
+            ((ServerLevel) voidWorld).setDefaultSpawnPos(finalTpPos,0.0f);
         }
         inTravelToVoid = false;
         event.setCanceled(true);
@@ -64,6 +68,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void playerLoginIn(final PlayerEvent.PlayerLoggedInEvent event) { //listen for "logging in"-event
         Player player = event.getEntity();
+        if (player.getTags().contains("NoFirstLogin")) return;
         assert world != null;
         if (!world.players().contains(player)) { //check whether the player (who is logging in) is already listed in the list of players on this world
             MinecraftServer server = player.getServer();
@@ -79,6 +84,7 @@ public class ModClientEvents {
                     }
                 });
             }
+            player.addTag("NoFirstLogin");
         }
     }
 
