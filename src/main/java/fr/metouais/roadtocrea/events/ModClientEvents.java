@@ -29,16 +29,16 @@ public class ModClientEvents {
 
     @SubscribeEvent
     public static void onTravelToVoid(EntityTravelToDimensionEvent event) {
-        if (!(event.getEntity() instanceof Player playerEntity)) return;
-        String sourceDimension = playerEntity.level.dimension().toString().split(" / ")[1].split("]")[0];
+        if (!(event.getEntity() instanceof Player player)) return;
+        String sourceDimension = player.level.dimension().toString().split(" / ")[1].split("]")[0];
         String targetDimension = event.getDimension().toString().split(" / ")[1].split("]")[0];
-        MinecraftServer server = playerEntity.getServer();
+        MinecraftServer server = player.getServer();
         if (server == null || Objects.equals(sourceDimension, "roadtocrea:void") || !Objects.equals(targetDimension, "roadtocrea:void") || inTravelToVoid) {
             return;
         }
         inTravelToVoid = true;
         Level voidWorld = RoadToCrea.getVoidWorld(server).orElseThrow(() -> new RuntimeException("Error getting void dimension"));
-        if(!voidWorld.isClientSide() && playerEntity.level instanceof ServerLevel && voidWorld instanceof ServerLevel) {
+        if(!voidWorld.isClientSide() && player.level instanceof ServerLevel && voidWorld instanceof ServerLevel) {
             BlockPos origin = new BlockPos(0,0,0);
             if (voidWorld.getBlockState(origin).isAir()) {
                 voidWorld.setBlockAndUpdate(origin, ModBlocks.ULTIMATE_BEDROCK.get().defaultBlockState());
@@ -48,7 +48,7 @@ public class ModClientEvents {
                 tpPos = tpPos.above();
             }
             BlockPos finalTpPos = tpPos;
-            playerEntity.changeDimension((ServerLevel) voidWorld, new ITeleporter() {
+            player.changeDimension((ServerLevel) voidWorld, new ITeleporter() {
                 @Override
                 public Entity placeEntity(Entity entity, ServerLevel currentWorld, ServerLevel destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
                     Entity repositionedEntity = repositionEntity.apply(false);
