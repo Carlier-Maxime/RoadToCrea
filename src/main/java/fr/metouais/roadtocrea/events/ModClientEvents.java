@@ -6,13 +6,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.monitoring.jmx.MinecraftServerStatistics;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.util.ITeleporter;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.LevelEvent;
@@ -28,12 +28,13 @@ public class ModClientEvents {
     private static boolean inTravelToVoid = false;
     @Nullable
     private static LevelAccessor world;
+    private static boolean space = false;
 
     @SubscribeEvent
     public static void onTravelToVoid(EntityTravelToDimensionEvent event) {
         if (!(event.getEntity() instanceof Player player)) return;
-        String sourceDimension = player.level.dimension().toString().split(" / ")[1].split("]")[0];
-        String targetDimension = event.getDimension().toString().split(" / ")[1].split("]")[0];
+        String sourceDimension = player.level.dimension().location().toString();
+        String targetDimension = event.getDimension().location().toString();
         MinecraftServer server = player.getServer();
         if (server == null || Objects.equals(sourceDimension, "roadtocrea:void") || !Objects.equals(targetDimension, "roadtocrea:void") || inTravelToVoid) {
             return;
@@ -91,5 +92,20 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void playerLoadsWorld(final LevelEvent.Load event) { //is called before "playerLoggingIn", so we can collect the world the player is joining
         world = event.getLevel(); //world is a private static IWorld-variable
+    }
+
+    @SubscribeEvent
+    public static void onLevelTickEvent(TickEvent.LevelTickEvent event) {
+        String levelName = event.level.dimension().location().toString();
+        if (levelName.equals("roadtocrea:void") && !space) {
+            ServerLevel serverLevelVoid = (ServerLevel) event.level;
+            if (serverLevelVoid.getDayTime() < 20000 && serverLevelVoid.isRaining()) return;
+            MinecraftServer server = event.level.getServer();
+            if (server == null) return;
+            for (ServerLevel serverLevel : server.getAllLevels()) {
+               serverLevel.setWeatherParameters(0,999999999, true, false);
+               serverLevel.setDayTime(16000);
+            }
+        }
     }
 }
