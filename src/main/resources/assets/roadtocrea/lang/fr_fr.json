@@ -1,3 +1,5 @@
 {
-  "block.roadtocrea.ultimate_bedrock": "L'Ultime Bedrock"
+  "block.roadtocrea.ultimate_bedrock": "L'Ultime substrat rocheux",
+  "biome.roadtocrea.void": "Le Vide",
+  "death.attack.ultimate_bedrock": "%1$s tué par l'ultime substrat rocheux"
 }

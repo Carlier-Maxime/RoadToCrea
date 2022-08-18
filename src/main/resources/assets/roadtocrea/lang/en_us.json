@@ -1,4 +1,5 @@
 {
   "block.roadtocrea.ultimate_bedrock": "Ultimate Bedrock",
-  "biome.roadtocrea.void" : "The Void"
+  "biome.roadtocrea.void": "The Void",
+  "death.attack.ultimate_bedrock": "%1$s killed by Ultimate bedrock"
 }
