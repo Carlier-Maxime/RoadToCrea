@@ -1,5 +1,6 @@
 package fr.metouais.roadtocrea.block;
 
+import fr.metouais.roadtocrea.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
@@ -21,7 +22,7 @@ public class UltimateBedrockBlock extends Block {
         player.causeFoodExhaustion(1f);
         if (player.blockPosition().equals(blockPos.above()) && player.getMainHandItem().isEmpty()) {
             if (player.level.getRandom().nextInt(100) <= 10) {
-                popResource(player.level, blockPos.above(), new ItemStack(() -> Items.STONE));
+                popResource(player.level, blockPos.above(), new ItemStack(ModItems.TINY_COBBLESTONE_PEBBLE::get));
             }
         }
         return super.getDestroyProgress(blockState, player, blockGetter, blockPos);
