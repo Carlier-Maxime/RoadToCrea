@@ -4,5 +4,6 @@
   "item.roadtocrea.cobblestone_pebble": "Caillou De Pierre",
   "item.roadtocrea.big_cobblestone_pebble": "Gros Caillou De Pierre",
   "biome.roadtocrea.void": "Le Vide",
-  "death.attack.ultimate_bedrock": "%1$s tué par l'ultime substrat rocheux"
+  "death.attack.ultimate_bedrock": "%1$s tué par l'ultime substrat rocheux",
+  "itemGroup.roadtocrea": "RoadToCrea"
 }

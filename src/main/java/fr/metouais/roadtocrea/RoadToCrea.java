@@ -6,6 +6,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -21,6 +24,12 @@ import java.util.Optional;
 public class RoadToCrea {
     public static final String MODID = "roadtocrea";
     public static final Logger LOGGER = LogManager.getLogger();
+    public static final CreativeModeTab ROADTOCREA_TAB = new CreativeModeTab(MODID) {
+        @Override
+        public @NotNull ItemStack makeIcon() {
+            return ModBlocks.ULTIMATE_BEDROCK.get().asItem().getDefaultInstance();
+        }
+    };
     public static final ResourceLocation DIM_ID = new ResourceLocation(MODID, "void");
 
     public RoadToCrea() {

@@ -20,7 +20,7 @@ public class ModBlocks {
 
     public static RegistryObject<Block> createBlock(String name, Supplier<? extends Block> supplier) {
         RegistryObject<Block> block = BLOCKS.register(name, supplier);
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
         return block;
     }
 }

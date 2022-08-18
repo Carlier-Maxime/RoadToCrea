@@ -4,5 +4,6 @@
   "item.roadtocrea.cobblestone_pebble": "Cobblestone Pebble",
   "item.roadtocrea.big_cobblestone_pebble": "Big Cobblestone Pebble",
   "biome.roadtocrea.void": "The Void",
-  "death.attack.ultimate_bedrock": "%1$s killed by Ultimate bedrock"
+  "death.attack.ultimate_bedrock": "%1$s killed by Ultimate bedrock",
+  "itemGroup.roadtocrea": "RoadToCrea"
 }
