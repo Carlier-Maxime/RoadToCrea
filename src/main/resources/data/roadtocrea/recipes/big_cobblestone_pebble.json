@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "roadtocrea:cobblestone_pebble"
+    }
+  },
+  "result": {
+    "item": "roadtocrea:big_cobblestone_pebble"
+  }
+}
