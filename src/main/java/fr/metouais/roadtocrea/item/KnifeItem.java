@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.SwordItem;
@@ -34,6 +35,7 @@ public class KnifeItem extends SwordItem {
             player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 100));
             BlockPos pos = player.blockPosition();
             level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), ModItems.RAW_HUMAN_MEAT.get().getDefaultInstance()));
+            useOnContext.getItemInHand().hurtAndBreak(4, player, (param) -> param.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         }
         return super.useOn(useOnContext);
     }
