@@ -3,7 +3,10 @@
   "item.roadtocrea.tiny_cobblestone_pebble": "Tiny Cobblestone Pebble",
   "item.roadtocrea.cobblestone_pebble": "Cobblestone Pebble",
   "item.roadtocrea.big_cobblestone_pebble": "Big Cobblestone Pebble",
+  "item.roadtocrea.cobblestone_knife": "Cobblestone Knife",
+  "item.roadtocrea.raw_human_meat": "Raw Human Meat",
   "biome.roadtocrea.void": "The Void",
   "death.attack.ultimate_bedrock": "%1$s killed by Ultimate bedrock",
+  "death.attack.cobblestone_knife": "%1$s committed suicide by cutting part of a muscle with a cobblestone knife",
   "itemGroup.roadtocrea": "RoadToCrea"
 }
