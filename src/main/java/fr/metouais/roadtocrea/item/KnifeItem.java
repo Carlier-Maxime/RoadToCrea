@@ -13,6 +13,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class KnifeItem extends SwordItem {
     public KnifeItem(Tier p_43269_, int p_43270_, float p_43271_, Properties p_43272_) {
@@ -20,7 +21,7 @@ public class KnifeItem extends SwordItem {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext useOnContext) {
+    public @NotNull InteractionResult useOn(UseOnContext useOnContext) {
         Player player = useOnContext.getPlayer();
         if (player == null) return super.useOn(useOnContext);
         Level level = useOnContext.getLevel();

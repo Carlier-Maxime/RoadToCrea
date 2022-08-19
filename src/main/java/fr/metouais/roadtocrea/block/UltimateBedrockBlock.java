@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,8 +17,8 @@ public class UltimateBedrockBlock extends Block {
 
     @Override
     public float getDestroyProgress(@NotNull BlockState blockState, @NotNull Player player, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos) {
-        player.hurt(new DamageSource("ultimate_bedrock"), 1f);
-        player.causeFoodExhaustion(1f);
+        player.hurt(new DamageSource("ultimate_bedrock"), 0.8f);
+        player.causeFoodExhaustion(0.5f);
         if (player.blockPosition().equals(blockPos.above()) && player.getMainHandItem().isEmpty()) {
             if (player.level.getRandom().nextInt(100) <= 10) {
                 popResource(player.level, blockPos.above(), new ItemStack(ModItems.TINY_COBBLESTONE_PEBBLE::get));
