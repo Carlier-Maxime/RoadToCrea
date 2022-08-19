@@ -12,5 +12,6 @@
   "biome.roadtocrea.void": "Le Vide",
   "death.attack.ultimate_bedrock": "%1$s tué par l'ultime substrat rocheux",
   "death.attack.cobblestone_knife": "%1$s s'est suicidé en se coupant une partie d'un muscle avec un couteau pavé",
+  "effect.roadtocrea.sorrow": "Chagrin",
   "itemGroup.roadtocrea": "RoadToCrea"
 }

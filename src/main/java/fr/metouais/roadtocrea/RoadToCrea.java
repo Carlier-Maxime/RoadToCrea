@@ -1,7 +1,9 @@
 package fr.metouais.roadtocrea;
 
 import fr.metouais.roadtocrea.init.ModBlocks;
+import fr.metouais.roadtocrea.init.ModEffects;
 import fr.metouais.roadtocrea.init.ModItems;
+import fr.metouais.roadtocrea.init.ModSounds;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -40,6 +42,8 @@ public class RoadToCrea {
 
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
+        ModEffects.MOB_EFFECTS.register(bus);
+        ModSounds.SOUND_EVENTS.register(bus);
     }
 
     private void setup(FMLCommonSetupEvent e) {

@@ -12,5 +12,6 @@
   "biome.roadtocrea.void": "The Void",
   "death.attack.ultimate_bedrock": "%1$s killed by Ultimate bedrock",
   "death.attack.cobblestone_knife": "%1$s committed suicide by cutting part of a muscle with a cobblestone knife",
+  "effect.roadtocrea.sorrow": "Sorrow",
   "itemGroup.roadtocrea": "RoadToCrea"
 }
