@@ -40,7 +40,9 @@ public class RainTransformableItem extends Item {
             player.getItemInHand(interactionHand).shrink(1);
             level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), cleanItem));
             if (dirtyItem != null) {
-                for (int i=0; i<level.getRandom().nextInt(maxDirtyItemCount); i++) level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), dirtyItem));
+                int max = level.getRandom().nextInt(maxDirtyItemCount+1);
+                if (max<1) max=1;
+                for (int i=0; i<max; i++) level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), dirtyItem));
             }
         }
         return super.use(level, player, interactionHand);
