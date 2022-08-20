@@ -5,6 +5,7 @@ import fr.metouais.roadtocrea.init.ModEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -43,6 +44,13 @@ public class RainTransformableItem extends Item {
                 int max = level.getRandom().nextInt(maxDirtyItemCount+1);
                 if (max<1) max=1;
                 for (int i=0; i<max; i++) level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), dirtyItem));
+            }
+            if (playerHasSorrow) {
+                MobEffectInstance sorrow = player.getEffect(ModEffects.SORROW.get());
+                if (sorrow == null) return super.use(level, player, interactionHand);
+                int duration = sorrow.getDuration();
+                player.removeEffect(sorrow.getEffect());
+                player.addEffect(new MobEffectInstance(ModEffects.SORROW.get(), duration-100));
             }
         }
         return super.use(level, player, interactionHand);
