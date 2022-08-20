@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 100,
+  "experience": 0.01,
+  "ingredient": {
+    "item": "roadtocrea:raw_human_meat"
+  },
+  "result": "roadtocrea:cooked_human_meat"
+}

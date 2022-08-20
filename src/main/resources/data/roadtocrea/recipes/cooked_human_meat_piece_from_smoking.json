@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "cookingtime": 50,
+  "experience": 0.01,
+  "ingredient": {
+    "item": "roadtocrea:raw_human_meat"
+  },
+  "result": "roadtocrea:cooked_human_meat"
+}
