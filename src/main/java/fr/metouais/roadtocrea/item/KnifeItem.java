@@ -1,10 +1,8 @@
 package fr.metouais.roadtocrea.item;
 
-import fr.metouais.roadtocrea.RoadToCrea;
 import fr.metouais.roadtocrea.init.ModBlocks;
 import fr.metouais.roadtocrea.init.ModEffects;
 import fr.metouais.roadtocrea.init.ModItems;
-import fr.metouais.roadtocrea.init.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.game.ClientboundCustomSoundPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -16,7 +14,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -76,7 +73,7 @@ public class KnifeItem extends SwordItem {
     }
 
     @Override
-    public void onCraftedBy(ItemStack p_41447_, Level p_41448_, Player player) {
+    public void onCraftedBy(@NotNull ItemStack p_41447_, @NotNull Level p_41448_, @NotNull Player player) {
         this.playerCrafter = player;
         super.onCraftedBy(p_41447_, p_41448_, player);
     }
