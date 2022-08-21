@@ -73,8 +73,8 @@ public class KnifeItem extends SwordItem {
     }
 
     @Override
-    public void onCraftedBy(@NotNull ItemStack p_41447_, @NotNull Level p_41448_, @NotNull Player player) {
+    public void onCraftedBy(@NotNull ItemStack itemStack, @NotNull Level level, @NotNull Player player) {
         this.playerCrafter = player;
-        super.onCraftedBy(p_41447_, p_41448_, player);
+        super.onCraftedBy(itemStack, level, player);
     }
 }
