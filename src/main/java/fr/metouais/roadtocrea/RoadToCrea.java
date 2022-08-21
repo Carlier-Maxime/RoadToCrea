@@ -4,6 +4,8 @@ import fr.metouais.roadtocrea.init.ModBlocks;
 import fr.metouais.roadtocrea.init.ModEffects;
 import fr.metouais.roadtocrea.init.ModItems;
 import fr.metouais.roadtocrea.init.ModSounds;
+import fr.metouais.roadtocrea.item.GrowItem;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -51,7 +53,14 @@ public class RoadToCrea {
     }
 
     private void clientSetup(FMLClientSetupEvent e) {
-
+        e.enqueueWork(() -> ItemProperties.register(ModItems.FERTILIZED_MUD_PEBBLE.get(), new ResourceLocation(MODID, "step"), (stack, level, living, id) -> {
+            LOGGER.info("in step function");
+            if (stack.getItem() instanceof GrowItem growItem) {
+                LOGGER.info("in if in step function");
+                return growItem.getStep(stack)/10f;
+            }
+            return 0.0f;
+        }));
     }
 
     public static Optional<Level> getVoidWorld(MinecraftServer server) {

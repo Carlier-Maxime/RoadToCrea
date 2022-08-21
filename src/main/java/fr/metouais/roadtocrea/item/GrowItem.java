@@ -1,6 +1,5 @@
 package fr.metouais.roadtocrea.item;
 
-import fr.metouais.roadtocrea.RoadToCrea;
 import fr.metouais.roadtocrea.init.ModBlocks;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -9,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class GrowItem extends Item {
+public class GrowItem extends Item{
     private final ItemStack growingResult;
     public GrowItem(ItemStack growingResult, Properties p_41383_) {
         super(p_41383_);
@@ -51,7 +50,7 @@ public class GrowItem extends Item {
         return stack;
     }
 
-    private int getStep(ItemStack stack) {
+    public int getStep(ItemStack stack) {
         return stack.getOrCreateTag().getInt("step");
     }
 
