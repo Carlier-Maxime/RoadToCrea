@@ -1,6 +1,7 @@
 package fr.metouais.roadtocrea.init;
 
 import fr.metouais.roadtocrea.RoadToCrea;
+import fr.metouais.roadtocrea.item.GrowItem;
 import fr.metouais.roadtocrea.item.RainTransformableItem;
 import fr.metouais.roadtocrea.item.KnifeItem;
 import net.minecraft.world.item.Item;
@@ -26,4 +27,5 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_HUMAN_MEAT = ITEMS.register("cooked_human_meat", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB).food(ModFoods.COOKED_HUMAN_MEAT)));
     public static final RegistryObject<Item> RAW_HUMAN_MEAT_PIECE = ITEMS.register("raw_human_meat_piece", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB).food(ModFoods.RAW_HUMAN_MEAT_PIECE)));
     public static final RegistryObject<Item> COOKED_HUMAN_MEAT_PIECE = ITEMS.register("cooked_human_meat_piece", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB).food(ModFoods.COOKED_HUMAN_MEAT_PIECE)));
+    public static final RegistryObject<Item> FERTILIZED_MUD_PEBBLE = ITEMS.register("fertilized_mud_pebble", () -> new GrowItem(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
 }

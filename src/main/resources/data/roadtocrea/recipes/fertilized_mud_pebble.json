@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "roadtocrea:mud_pebble"
+    },
+    {
+      "item": "roadtocrea:raw_human_meat_piece"
+    }
+  ],
+  "result": {
+    "item": "roadtocrea:fertilized_mud_pebble"
+  }
+}
