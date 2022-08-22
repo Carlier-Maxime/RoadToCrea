@@ -1,5 +1,6 @@
 package fr.metouais.roadtocrea.item;
 
+import fr.metouais.roadtocrea.RoadToCrea;
 import fr.metouais.roadtocrea.init.ModBlocks;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -24,11 +25,11 @@ public class GrowItem extends Item{
         long stepStartTime = getStepStartTime(itemStack);
         int delayStep = level.getBlockState(entity.blockPosition().below()).getBlock().equals(ModBlocks.ULTIMATE_BEDROCK.get()) ? 600 : 1200;
         if (gameTime > stepStartTime) {
-            if (stepStartTime == -1) setStepStartTime(itemStack, gameTime);
+            if (stepStartTime <= 0) setStepStartTime(itemStack, gameTime);
             else if (gameTime - stepStartTime > delayStep) {
                 nextStep(itemStack);
                 setStepStartTime(itemStack, gameTime);
-                if (getStep(itemStack) >= 3) {
+                if (getStep(itemStack) > 3) {
                     int count = itemStack.getCount();
                     itemStack.shrink(count);
                     growingResult.setCount(count);

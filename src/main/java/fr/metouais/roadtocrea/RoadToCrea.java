@@ -52,15 +52,15 @@ public class RoadToCrea {
 
     }
 
-    private void clientSetup(FMLClientSetupEvent e) {
-        e.enqueueWork(() -> ItemProperties.register(ModItems.FERTILIZED_MUD_PEBBLE.get(), new ResourceLocation(MODID, "step"), (stack, level, living, id) -> {
-            LOGGER.info("in step function");
-            if (stack.getItem() instanceof GrowItem growItem) {
-                LOGGER.info("in if in step function");
-                return growItem.getStep(stack)/10f;
-            }
-            return 0.0f;
-        }));
+    private void clientSetup(final FMLClientSetupEvent e) {
+        e.enqueueWork(() -> {
+            ItemProperties.register(ModItems.FERTILIZED_MUD_PEBBLE.get(), new ResourceLocation(MODID, "step"), (stack, level, living, id) -> {
+                if (stack.getItem() instanceof GrowItem growItem) {
+                    return growItem.getStep(stack)/10f;
+                }
+                return 0.0f;
+            });
+        });
     }
 
     public static Optional<Level> getVoidWorld(MinecraftServer server) {

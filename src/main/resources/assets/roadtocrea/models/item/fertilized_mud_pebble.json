@@ -2,5 +2,11 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "roadtocrea:items/fertilized_mud_pebble_step0"
-  }
+  },
+  "overrides": [
+    { "predicate": {"roadtocrea:step": 0.0}, "model":  "roadtocrea:item/fertilized_mud_pebble"},
+    { "predicate": {"roadtocrea:step": 0.1}, "model":  "roadtocrea:item/fertilized_mud_pebble_step1"},
+    { "predicate": {"roadtocrea:step": 0.2}, "model":  "roadtocrea:item/fertilized_mud_pebble_step2"},
+    { "predicate": {"roadtocrea:step": 0.3}, "model":  "roadtocrea:item/fertilized_mud_pebble_step3"}
+  ]
 }
