@@ -1,0 +1,13 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "roadtocrea:items/fertilized_moss_ball_step0"
+  },
+  "overrides": [
+    { "predicate": {"roadtocrea:step": 0.0}, "model":  "roadtocrea:item/fertilized_moss_ball"},
+    { "predicate": {"roadtocrea:step": 0.1}, "model":  "roadtocrea:item/fertilized_moss_ball_step1"},
+    { "predicate": {"roadtocrea:step": 0.2}, "model":  "roadtocrea:item/fertilized_moss_ball_step2"},
+    { "predicate": {"roadtocrea:step": 0.3}, "model":  "roadtocrea:item/fertilized_moss_ball_step3"},
+    { "predicate": {"roadtocrea:step": 0.4}, "model":  "roadtocrea:item/fertilized_moss_ball_step4"}
+  ]
+}

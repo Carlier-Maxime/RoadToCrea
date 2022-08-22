@@ -5,6 +5,7 @@ import fr.metouais.roadtocrea.init.ModEffects;
 import fr.metouais.roadtocrea.init.ModItems;
 import fr.metouais.roadtocrea.init.ModSounds;
 import fr.metouais.roadtocrea.item.GrowItem;
+import fr.metouais.roadtocrea.item.ItemPropertiesFunctions;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -54,12 +55,8 @@ public class RoadToCrea {
 
     private void clientSetup(final FMLClientSetupEvent e) {
         e.enqueueWork(() -> {
-            ItemProperties.register(ModItems.FERTILIZED_MUD_PEBBLE.get(), new ResourceLocation(MODID, "step"), (stack, level, living, id) -> {
-                if (stack.getItem() instanceof GrowItem growItem) {
-                    return growItem.getStep(stack)/10f;
-                }
-                return 0.0f;
-            });
+            ItemProperties.register(ModItems.FERTILIZED_MUD_PEBBLE.get(), new ResourceLocation(MODID, "step"), ItemPropertiesFunctions::getNbtStep);
+            ItemProperties.register(ModItems.FERTILIZED_MOSS_BALL.get(), new ResourceLocation(MODID, "step"), ItemPropertiesFunctions::getNbtStep);
         });
     }
 

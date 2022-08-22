@@ -10,10 +10,13 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class GrowItem extends Item{
-    private final ItemStack growingResult;
-    public GrowItem(ItemStack growingResult, Properties p_41383_) {
+    private final Item growingResult;
+    private final int nbStep;
+
+    public GrowItem(Item growingResult, int nbStep, Properties p_41383_) {
         super(p_41383_);
         this.growingResult = growingResult;
+        this.nbStep = nbStep;
     }
 
     @Override
@@ -29,11 +32,12 @@ public class GrowItem extends Item{
             else if (gameTime - stepStartTime > delayStep) {
                 nextStep(itemStack);
                 setStepStartTime(itemStack, gameTime);
-                if (getStep(itemStack) > 3) {
+                if (getStep(itemStack) >= nbStep) {
                     int count = itemStack.getCount();
                     itemStack.shrink(count);
-                    growingResult.setCount(count);
-                    player.getInventory().add(itemSlot, growingResult);
+                    ItemStack result = growingResult.getDefaultInstance();
+                    result.setCount(count);
+                    player.getInventory().add(itemSlot, result);
                 }
             }
         }

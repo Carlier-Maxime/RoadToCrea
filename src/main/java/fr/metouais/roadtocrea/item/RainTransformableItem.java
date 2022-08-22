@@ -14,19 +14,19 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class RainTransformableItem extends Item {
-    private final ItemStack cleanItem;
-    private final ItemStack dirtyItem;
+    private final Item cleanItem;
+    private final Item dirtyItem;
     private final int maxDirtyItemCount;
 
-    public RainTransformableItem(ItemStack cleanItem, Properties properties) {
+    public RainTransformableItem(Item cleanItem, Properties properties) {
         this(cleanItem,null, properties);
     }
 
-    public RainTransformableItem(ItemStack cleanItem, ItemStack dirtyItem, Properties properties) {
+    public RainTransformableItem(Item cleanItem, Item dirtyItem, Properties properties) {
         this(cleanItem, dirtyItem, 1, properties);
     }
 
-    public RainTransformableItem(ItemStack cleanItem, ItemStack dirtyItem, int maxDirtyItemCount, Properties properties) {
+    public RainTransformableItem(Item cleanItem, Item dirtyItem, int maxDirtyItemCount, Properties properties) {
         super(properties);
         this.cleanItem = cleanItem;
         this.dirtyItem = dirtyItem;
@@ -39,11 +39,11 @@ public class RainTransformableItem extends Item {
         BlockPos pos = player.blockPosition();
         if (playerHasSorrow || player.level.isRainingAt(pos)) {
             player.getItemInHand(interactionHand).shrink(1);
-            level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), cleanItem));
+            level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), cleanItem.getDefaultInstance()));
             if (dirtyItem != null) {
                 int max = level.getRandom().nextInt(maxDirtyItemCount+1);
                 if (max<1) max=1;
-                for (int i=0; i<max; i++) level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), dirtyItem));
+                for (int i=0; i<max; i++) level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), dirtyItem.getDefaultInstance()));
             }
             if (playerHasSorrow) {
                 MobEffectInstance sorrow = player.getEffect(ModEffects.SORROW.get());
