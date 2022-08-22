@@ -22,7 +22,7 @@ public class UltimateBedrockBlock extends Block {
         if (player.blockPosition().equals(blockPos.above()) && player.getMainHandItem().isEmpty()) {
             if (player.level.getRandom().nextInt(100) <= 10) {
                 popResource(player.level, blockPos.above(), new ItemStack(ModItems.TINY_COBBLESTONE_PEBBLE::get));
-                if (player.level.getRandom().nextInt(100) <= 10) {
+                if (player.level.getRandom().nextInt(100) <= 15) {
                     popResource(player.level, blockPos.above(), new ItemStack(ModItems.TINY_DIRTY_COBBLESTONE_PEBBLE::get));
                 }
             }
