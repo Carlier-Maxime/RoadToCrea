@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "roadtocrea:mossy_dirt_pebble"
+    }
+  ],
+  "result": {
+    "item": "roadtocrea:moss_ball"
+  }
+}
