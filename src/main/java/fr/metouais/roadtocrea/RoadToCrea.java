@@ -55,8 +55,8 @@ public class RoadToCrea {
 
     private void clientSetup(final FMLClientSetupEvent e) {
         e.enqueueWork(() -> {
-            ItemProperties.register(ModItems.FERTILIZED_MUD_PEBBLE.get(), new ResourceLocation(MODID, "step"), ItemPropertiesFunctions::getNbtStep);
-            ItemProperties.register(ModItems.FERTILIZED_MOSS_BALL.get(), new ResourceLocation(MODID, "step"), ItemPropertiesFunctions::getNbtStep);
+            ItemProperties.register(ModItems.FERTILIZED_MUD_PEBBLE.get(), new ResourceLocation(MODID, "step"), new ItemPropertiesFunctions.NbtStep() {});
+            ItemProperties.register(ModItems.FERTILIZED_MOSS_BALL.get(), new ResourceLocation(MODID, "step"), new ItemPropertiesFunctions.NbtStep() {});
         });
     }
 
