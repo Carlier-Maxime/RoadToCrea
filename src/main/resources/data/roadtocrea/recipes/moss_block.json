@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "roadtocrea:moss_slab"
+    }
+  },
+  "result": {
+    "item": "minecraft:moss_block"
+  }
+}

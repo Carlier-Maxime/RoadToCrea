@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:moss_carpet"
+    }
+  },
+  "result": {
+    "item": "roadtocrea:moss_slab"
+  }
+}
