@@ -34,4 +34,15 @@ public class ModItems {
     public static final RegistryObject<Item> MOSS_BALL = ITEMS.register("moss_ball", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> MANGROVE_PROPAGULE_AND_MOSS_BALL = ITEMS.register("mangrove_propagule_and_moss_ball", () -> new ItemWithRemainingItem(MOSS_BALL.get() ,new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> FERTILIZED_MOSS_BALL = ITEMS.register("fertilized_moss_ball", () -> new GrowItem(MANGROVE_PROPAGULE_AND_MOSS_BALL.get(), 5, new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> CRAFTING_CHISEL = ITEMS.register("crafting_chisel", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> CRAFTING_HAMMER = ITEMS.register("crafting_hammer", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> CRAFTING_SAW = ITEMS.register("crafting_saw", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> MANGROVE_CRAFTING_ALL_SIDE = ITEMS.register("mangrove_crafting_all_side", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> MANGROVE_CRAFTING_ALL_SIDE_STACK = ITEMS.register("mangrove_crafting_all_side_stack", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> MANGROVE_PLANK = ITEMS.register("mangrove_plank", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> MANGROVE_PLANK_GRID = ITEMS.register("mangrove_plank_grid", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> PACKED_STICK = ITEMS.register("packed_stick", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> STICK_FRAME = ITEMS.register("stick_frame", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> STICK_GRID = ITEMS.register("stick_grid", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> TOOL_ROD = ITEMS.register("tool_rod", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
 }
