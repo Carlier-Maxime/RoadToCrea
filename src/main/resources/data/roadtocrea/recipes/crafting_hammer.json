@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "T"
+  ],
+  "key": {
+    "T": {
+      "item": "roadtocrea:tool_rod"
+    },
+    "P": {
+      "item": "roadtocrea:cobblestone_pebble"
+    }
+  },
+  "result": {
+    "item": "roadtocrea:crafting_hammer"
+  }
+}

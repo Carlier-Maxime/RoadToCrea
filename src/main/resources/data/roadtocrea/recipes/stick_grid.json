@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "roadtocrea:stick_frame"
+    },
+    {
+      "item": "roadtocrea:packed_stick"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "roadtocrea:stick_grid"
+  }
+}
