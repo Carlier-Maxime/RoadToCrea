@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "roadtocrea:mangrove_plank"
+    },
+    {
+      "item": "roadtocrea:crafting_chisel"
+    },
+    {
+      "item": "roadtocrea:crafting_hammer"
+    },
+    {
+      "item": "roadtocrea:crafting_saw"
+    }
+  ],
+  "result": {
+    "item": "roadtocrea:mangrove_crafting_all_side"
+  }
+}

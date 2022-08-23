@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "roadtocrea:mangrove_plank"
+    },
+    {
+      "item": "roadtocrea:stick_grid"
+    }
+  ],
+  "result": {
+    "item": "roadtocrea:mangrove_plank_grid"
+  }
+}
