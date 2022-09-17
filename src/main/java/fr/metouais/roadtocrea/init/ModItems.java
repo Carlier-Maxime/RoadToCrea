@@ -1,10 +1,7 @@
 package fr.metouais.roadtocrea.init;
 
 import fr.metouais.roadtocrea.RoadToCrea;
-import fr.metouais.roadtocrea.item.GrowItem;
-import fr.metouais.roadtocrea.item.ItemWithRemainingItem;
-import fr.metouais.roadtocrea.item.RainTransformableItem;
-import fr.metouais.roadtocrea.item.KnifeItem;
+import fr.metouais.roadtocrea.item.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,4 +42,5 @@ public class ModItems {
     public static final RegistryObject<Item> STICK_FRAME = ITEMS.register("stick_frame", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> STICK_GRID = ITEMS.register("stick_grid", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> TOOL_ROD = ITEMS.register("tool_rod", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> UNIVERSE_ESSENCE = ITEMS.register("universe_essence", () -> new UniverseEssenceItem(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
 }
