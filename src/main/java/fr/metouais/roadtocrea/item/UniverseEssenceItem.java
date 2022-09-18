@@ -22,7 +22,7 @@ public class UniverseEssenceItem extends Item {
             player.getCapability(PlayerUniverseEssenceProvider.PLAYER_UNIVERSE_ESSENCE).ifPresent(universeEssence -> {
                 universeEssence.addUniverseEssence(1);
                 player.getItemInHand(interactionHand).shrink(1);
-                player.sendSystemMessage(Component.literal("§3You have absorbed universe essence"));
+                player.sendSystemMessage(Component.translatable("item.roadtocrea.universe_essence.consume"));
             });
         }
         return super.use(level, player, interactionHand);

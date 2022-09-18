@@ -67,7 +67,7 @@ public class ModItems {
     private static void addTextLanguage(ListTag listTag, String[] text, String lang) {
         for (int i=0; i< text.length; i++) {
             if (i==0) listTag.add(StringTag.valueOf("[{text:\""+lang+"\n\n\", color:blue},{text:\""+text[i]+"\", color:black}]"));
-            else listTag.add(i, StringTag.valueOf("{text:\""+text[i]+"\"}"));
+            else listTag.add(StringTag.valueOf("{text:\""+text[i]+"\"}"));
         }
     }
 

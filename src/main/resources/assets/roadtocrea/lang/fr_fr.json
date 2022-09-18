@@ -34,6 +34,7 @@
   "item.roadtocrea.stick_grid": "Grille en Batôn",
   "item.roadtocrea.tool_rod": "Tige d'Outil",
   "item.roadtocrea.universe_essence": "Essence de l'Univers",
+  "item.roadtocrea.universe_essence.consume": "Tu as absorbé l'essence de l'univers",
   "biome.roadtocrea.void": "Le Vide",
   "death.attack.ultimate_bedrock": "%1$s tué par l'ultime substrat rocheux",
   "death.attack.knife": "%1$s s'est suicidé en se coupant une partie d'un muscle avec un couteau",
