@@ -2,28 +2,28 @@ package fr.metouais.roadtocrea.events;
 
 import fr.metouais.roadtocrea.RoadToCrea;
 import fr.metouais.roadtocrea.init.ModBlocks;
-import fr.metouais.roadtocrea.universeEssence.PlayerUniverseEssence;
-import fr.metouais.roadtocrea.universeEssence.PlayerUniverseEssenceProvider;
+import fr.metouais.roadtocrea.init.ModItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.common.util.ITeleporter;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.Nullable;
@@ -92,6 +92,20 @@ public class ModClientEvents {
                     }
                 });
             }
+
+            ItemStack RoadToCreaBook = Items.WRITTEN_BOOK.getDefaultInstance();
+            CompoundTag nbt = new CompoundTag();
+            nbt.putString("title","Road To Crea");
+            nbt.putString("author","M_EtOuais");
+            ListTag listTag = new ListTag();
+            String[] lines = new String[]{"Ceci est la première page","Celle ci la seconde","Et elle la troisième"};
+            for (int i=0; i<lines.length; i++) {
+                listTag.add(i, StringTag.valueOf(lines[i]));
+            }
+            nbt.put("pages", listTag);
+            RoadToCreaBook.setTag(nbt);
+            player.addItem(RoadToCreaBook);
+            player.addItem(ModItems.UNIVERSE_ESSENCE.get().getDefaultInstance());
             player.addTag("NoFirstLogin");
         }
     }
