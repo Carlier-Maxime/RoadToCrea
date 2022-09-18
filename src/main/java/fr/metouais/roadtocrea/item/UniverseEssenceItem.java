@@ -2,6 +2,7 @@ package fr.metouais.roadtocrea.item;
 
 import fr.metouais.roadtocrea.universeEssence.PlayerUniverseEssenceProvider;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -22,7 +23,9 @@ public class UniverseEssenceItem extends Item {
             player.getCapability(PlayerUniverseEssenceProvider.PLAYER_UNIVERSE_ESSENCE).ifPresent(universeEssence -> {
                 universeEssence.addUniverseEssence(1);
                 player.getItemInHand(interactionHand).shrink(1);
-                player.sendSystemMessage(Component.translatable("item.roadtocrea.universe_essence.consume"));
+                MutableComponent component = Component.translatable("item.roadtocrea.universe_essence.consume");
+                component.setStyle(component.getStyle().withColor(43690));
+                player.sendSystemMessage(component);
             });
         }
         return super.use(level, player, interactionHand);
