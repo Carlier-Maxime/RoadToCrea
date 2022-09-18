@@ -1,5 +1,6 @@
 {
   "block.roadtocrea.ultimate_bedrock": "Ultimate Bedrock",
+  "block.roadtocrea.ultimate_bedrock.dig.fail": "An invisible force is preventing this block from being digged",
   "block.roadtocrea.mangrove_crafting_table": "Mangrove Crafting Table",
   "block.roadtocrea.moss_slab": "Moss Slab",
   "item.roadtocrea.tiny_cobblestone_pebble": "Tiny Cobblestone Pebble",

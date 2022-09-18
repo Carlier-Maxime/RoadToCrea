@@ -1,5 +1,6 @@
 {
   "block.roadtocrea.ultimate_bedrock": "L'Ultime substrat rocheux",
+  "block.roadtocrea.ultimate_bedrock.dig.fail": "Une force invisible empêche ce bloc d'être creusé",
   "block.roadtocrea.mangrove_crafting_table": "Table d'Artisanant en Mangrove",
   "block.roadtocrea.moss_slab": "Dalle de Mousse",
   "item.roadtocrea.tiny_cobblestone_pebble": "Minuscule Caillou de Pierre",
