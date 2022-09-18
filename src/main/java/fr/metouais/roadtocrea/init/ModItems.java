@@ -52,13 +52,28 @@ public class ModItems {
     public static final RegistryObject<Item> UNIVERSE_ESSENCE = ITEMS.register("universe_essence", () -> new UniverseEssenceItem(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
 
     private static ItemStack createRoadToCreaBook() {
-        ItemStack RoadToCreaBook = Items.WRITTEN_BOOK.getDefaultInstance();
+        ItemStack roadToCreaBook = Items.WRITTEN_BOOK.getDefaultInstance();
         CompoundTag nbt = new CompoundTag();
         nbt.putString("title","Road To Crea");
-        nbt.putString("author","?????");
+        nbt.putString("author", "?????");
         ListTag listTag = new ListTag();
-        String[] lines = new String[]{
-                "If you are reading this book, you are the universe's last hope.\n" +
+        addTextLanguage(listTag, getEnTextForRoadToCreaBook(), "English");
+        addTextLanguage(listTag, getFrTextForRoadToCreaBook(), "Français");
+        nbt.put("pages", listTag);
+        roadToCreaBook.setTag(nbt);
+        return roadToCreaBook;
+    }
+
+    private static void addTextLanguage(ListTag listTag, String[] text, String lang) {
+        for (int i=0; i< text.length; i++) {
+            if (i==0) listTag.add(StringTag.valueOf("[{text:\""+lang+"\n\n\", color:blue},{text:\""+text[i]+"\", color:black}]"));
+            else listTag.add(i, StringTag.valueOf("{text:\""+text[i]+"\"}"));
+        }
+    }
+
+    private static String[] getEnTextForRoadToCreaBook() {
+        return new String[]{
+                "If you are reading this book, you are the universe's last hope. " +
                         "This one had become too unstable, between the pigs which became creeper at nightfall and the crafts which gave a random result, " +
                         "the universe can see that end is approaching.",
                 "To avoid this I condensed the entire universe into a single block called the ultimate bedrock. " +
@@ -69,11 +84,19 @@ public class ModItems {
                         "You will have to absorb part of the essence of the universe in order to be able to resonate with the ultimate bedrock and thus allow you to harvest the first resources. " +
                         "(If you can't absorb the essence of the universe, try eating it)"
         };
-        for (int i=0; i<lines.length; i++) {
-            listTag.add(i, StringTag.valueOf("{\"text\":\""+lines[i]+"\"}"));
-        }
-        nbt.put("pages", listTag);
-        RoadToCreaBook.setTag(nbt);
-        return RoadToCreaBook;
+    }
+
+    private static String[] getFrTextForRoadToCreaBook() {
+        return new String[]{
+                "Si vous lisez ce livre c'est que vous êtes le dernier espoire de l'univers. " +
+                        "Celui-ci était devenu trop instable, entre les cochon qui devenait creeper à la tomber de la nuit et les craft qui donnait un résultat aléatoire, " +
+                        "l'univers voyez ça fin aprocher.",
+                "Pour éviter cela j'ai condenser l'intégraliter de l'univers en un unique bloc appelait l'ultime bedrock. " +
+                        "Les seul chose que je n'ai pas réunie dans ce block sont ce livre, vous, et la partie restante de moi.",
+                "Mais revenont à ce présent. Il va vous falloir traverser une longue épreuve afin de recréer le monde telle qu'il était auparavant. " +
+                        "Car l'univers est désormais entre vos main.",
+                "Pour commencer il va falloir que vous absorber une partie de l'essence de l'univers afin de pouvoir entrer en résonance avec l'ultimate bedrock et ainsi vous permettre de récolter les première resource. " +
+                        "(si vous arrivez pas à l'absorber, essayez de la manger)"
+        };
     }
 }
