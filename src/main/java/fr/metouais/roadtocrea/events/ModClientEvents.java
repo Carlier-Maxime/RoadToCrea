@@ -93,18 +93,7 @@ public class ModClientEvents {
                 });
             }
 
-            ItemStack RoadToCreaBook = Items.WRITTEN_BOOK.getDefaultInstance();
-            CompoundTag nbt = new CompoundTag();
-            nbt.putString("title","Road To Crea");
-            nbt.putString("author","M_EtOuais");
-            ListTag listTag = new ListTag();
-            String[] lines = new String[]{"Ceci est la première page","Celle ci la seconde","Et elle la troisième"};
-            for (int i=0; i<lines.length; i++) {
-                listTag.add(i, StringTag.valueOf(lines[i]));
-            }
-            nbt.put("pages", listTag);
-            RoadToCreaBook.setTag(nbt);
-            player.addItem(RoadToCreaBook);
+            player.addItem(ModItems.ROAD_TO_CREA_BOOK);
             player.addItem(ModItems.UNIVERSE_ESSENCE.get().getDefaultInstance());
             player.addTag("NoFirstLogin");
         }

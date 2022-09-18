@@ -2,13 +2,20 @@ package fr.metouais.roadtocrea.init;
 
 import fr.metouais.roadtocrea.RoadToCrea;
 import fr.metouais.roadtocrea.item.*;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
+    public static final ItemStack ROAD_TO_CREA_BOOK = createRoadToCreaBook();
+
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RoadToCrea.MODID);
 
     public static final RegistryObject<Item> TINY_COBBLESTONE_PEBBLE = ITEMS.register("tiny_cobblestone_pebble", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
@@ -43,4 +50,30 @@ public class ModItems {
     public static final RegistryObject<Item> STICK_GRID = ITEMS.register("stick_grid", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> TOOL_ROD = ITEMS.register("tool_rod", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> UNIVERSE_ESSENCE = ITEMS.register("universe_essence", () -> new UniverseEssenceItem(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+
+    private static ItemStack createRoadToCreaBook() {
+        ItemStack RoadToCreaBook = Items.WRITTEN_BOOK.getDefaultInstance();
+        CompoundTag nbt = new CompoundTag();
+        nbt.putString("title","Road To Crea");
+        nbt.putString("author","?????");
+        ListTag listTag = new ListTag();
+        String[] lines = new String[]{
+                "If you are reading this book, you are the universe's last hope.\n" +
+                        "This one had become too unstable, between the pigs which became creeper at nightfall and the crafts which gave a random result, " +
+                        "the universe can see that end is approaching.",
+                "To avoid this I condensed the entire universe into a single block called the ultimate bedrock. " +
+                        "The only things I haven't put together in this block are this book, you, and the remaining part of me.",
+                "But back to this present. You will have to go through a long ordeal in order to recreate the world as it was before. " +
+                        "Because the universe is now in your hands.",
+                "To begin with,\n" +
+                        "You will have to absorb part of the essence of the universe in order to be able to resonate with the ultimate bedrock and thus allow you to harvest the first resources. " +
+                        "(If you can't absorb the essence of the universe, try eating it)"
+        };
+        for (int i=0; i<lines.length; i++) {
+            listTag.add(i, StringTag.valueOf("{\"text\":\""+lines[i]+"\"}"));
+        }
+        nbt.put("pages", listTag);
+        RoadToCreaBook.setTag(nbt);
+        return RoadToCreaBook;
+    }
 }
