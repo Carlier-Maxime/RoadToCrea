@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "roadtocrea:cobblestone_knife"
+    },
+    "title": "A Knife but why do ?",
+    "description": "and if it was used to recover food ?",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "roadtocrea:universe_essence",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "roadtocrea:cobblestone_knife"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

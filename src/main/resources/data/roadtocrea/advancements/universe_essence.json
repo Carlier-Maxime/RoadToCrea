@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "roadtocrea:universe_essence"
+    },
+    "title": "The Power Of Universe ?",
+    "description": "an essence containing some of the power of the universe ?",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "roadtocrea:roadtocrea",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+            "items": [
+              "roadtocrea:universe_essence"
+            ]
+        }
+      }
+    }
+  }
+}

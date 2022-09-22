@@ -9,4 +9,5 @@ public class ModFoods {
     public static final FoodProperties COOKED_HUMAN_MEAT = (new FoodProperties.Builder()).nutrition(30).saturationMod(13.8f).effect(new MobEffectInstance(MobEffects.CONFUSION, 600, 5), 0.8f).effect(new MobEffectInstance(MobEffects.POISON, 60), 0.02f).meat().build();
     public static final FoodProperties RAW_HUMAN_MEAT_PIECE = (new FoodProperties.Builder()).nutrition(2).saturationMod(1.38f).effect(new MobEffectInstance(MobEffects.HUNGER, 60), 0.9f).effect(new MobEffectInstance(MobEffects.CONFUSION, 133, 9), 1f).meat().build();
     public static final FoodProperties COOKED_HUMAN_MEAT_PIECE = (new FoodProperties.Builder()).nutrition(3).saturationMod(1.53f).effect(new MobEffectInstance(MobEffects.CONFUSION, 100, 5), 0.8f).meat().build();
+    public static final FoodProperties UNIVERSE_ESSENCE = (new FoodProperties.Builder()).nutrition(0).saturationMod(0).alwaysEat().fast().build();
 }

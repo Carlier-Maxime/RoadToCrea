@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:mangrove_propagule"
+    },
+    "title": "A sapling with no block to grow !",
+    "description": "The wood it contains can, however, be useful",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "roadtocrea:moss_ball",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:mangrove_propagule"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

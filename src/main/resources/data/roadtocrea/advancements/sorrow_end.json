@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "roadtocrea:tiny_mud_pebble"
+    },
+    "title": "Combine the unpleasant with the useful",
+    "description": "How tears are useful",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "roadtocrea:cobblestone_knife",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "item": {
+          "items": [
+            "roadtocrea:tiny_mud_pebble"
+          ]
+        }
+      }
+    }
+  }
+}

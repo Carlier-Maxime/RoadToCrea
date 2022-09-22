@@ -49,7 +49,7 @@ public class ModItems {
     public static final RegistryObject<Item> STICK_FRAME = ITEMS.register("stick_frame", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> STICK_GRID = ITEMS.register("stick_grid", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> TOOL_ROD = ITEMS.register("tool_rod", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
-    public static final RegistryObject<Item> UNIVERSE_ESSENCE = ITEMS.register("universe_essence", () -> new UniverseEssenceItem(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
+    public static final RegistryObject<Item> UNIVERSE_ESSENCE = ITEMS.register("universe_essence", () -> new UniverseEssenceItem(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB).food(ModFoods.UNIVERSE_ESSENCE)));
 
     private static ItemStack createRoadToCreaBook() {
         ItemStack roadToCreaBook = Items.WRITTEN_BOOK.getDefaultInstance();

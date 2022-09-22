@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "roadtocrea:moss_ball"
+    },
+    "title": "The beginning of vegetation",
+    "description": "And yeah you're officially the parent of vegetation",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "roadtocrea:sorrow_end",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "item": {
+          "items": [
+            "roadtocrea:moss_ball"
+          ]
+        }
+      }
+    }
+  }
+}

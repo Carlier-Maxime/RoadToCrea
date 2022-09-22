@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "roadtocrea:raw_human_meat"
+    },
+    "title": "Don't lose consciousness,",
+    "description": "it's only the first meal",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "roadtocrea:cobblestone_knife",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "roadtocrea:raw_human_meat"
+          ]
+        }
+      }
+    }
+  }
+}

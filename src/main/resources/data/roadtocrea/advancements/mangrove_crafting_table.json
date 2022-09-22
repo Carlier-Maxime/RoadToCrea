@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "roadtocrea:mangrove_crafting_table"
+    },
+    "title": "The first crafting table",
+    "description": "It changes oak wood",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "roadtocrea:mangrove_propagule",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "roadtocrea:mangrove_crafting_table"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
