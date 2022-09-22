@@ -82,7 +82,13 @@ public class ModItems {
                         "Because the universe is now in your hands.",
                 "To begin with,\n" +
                         "You will have to absorb part of the essence of the universe in order to be able to resonate with the ultimate bedrock and thus allow you to harvest the first resources. " +
-                        "(If you can't absorb the essence of the universe, try eating it)"
+                        "(If you can't absorb the essence of the universe, try eating it)",
+                "Once the essence is absorbed, simply tap the ultimate bedrock by hand, staying above it. " +
+                        "It is indeed necessary that you are above the block so that the little essence universe that you possess resonates with the ultimate bedrock",
+                "So that you can pass the first layer of protection of the ultimate bedrock. " +
+                        "The resources you will get should allow you to craft a cobblestone knife in order to recover meat from the living being present...",
+                "And yes, you unfortunately understood what that meant. " +
+                "If you're low on strength, resonate with the ultimate bedrock as much as possible by crouching over it."
         };
     }
 
@@ -96,7 +102,13 @@ public class ModItems {
                 "Mais revenont à ce présent. Il va vous falloir traverser une longue épreuve afin de recréer le monde telle qu'il était auparavant. " +
                         "Car l'univers est désormais entre vos main.",
                 "Pour commencer il va falloir que vous absorber une partie de l'essence de l'univers afin de pouvoir entrer en résonance avec l'ultimate bedrock et ainsi vous permettre de récolter les première resource. " +
-                        "(si vous arrivez pas à l'absorber, essayez de la manger)"
+                        "(si vous arrivez pas à l'absorber, essayez de la manger)",
+                "Une fois l'essence absorber, taper simplement l'ultimate bedrock à la main en restant au dessus de celle ci. " +
+                        "Il est en effet nécessaire que vous soyez au dessus du bloc pour que le peu d'univers essence que vous posséder entre en résonance avec l'ultimate bedrock",
+                "Afin de pouvoir passer la première couche de protection de l'ultimate bedrock. " +
+                        "Les resources que vous obtiendrai devrait vous permettre de crafter un couteau en cobblestone afin de récupérer de la viande sur l'être vivant présent...",
+                "Et Ouais, vous avez malheureusement bien compris ce que ceci signifier. " +
+                        "Si la force vous manque entrer le plus possible en résonance avec l'ultimate bedrock en vous accroupissant au dessus de celle ci."
         };
     }
 }
