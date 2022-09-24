@@ -93,7 +93,7 @@ public class ModClientEvents {
                 });
             }
 
-            player.addItem(ModItems.ROAD_TO_CREA_BOOK);
+            player.addItem(ModItems.ROAD_TO_CREA_BOOK_PART_1);
             player.addItem(ModItems.UNIVERSE_ESSENCE.get().getDefaultInstance());
             player.addTag("NoFirstLogin");
         }

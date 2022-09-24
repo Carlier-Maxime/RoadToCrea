@@ -14,7 +14,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
-    public static final ItemStack ROAD_TO_CREA_BOOK = createRoadToCreaBook();
+    public static final ItemStack ROAD_TO_CREA_BOOK_PART_1 = createRoadToCreaBook(0);
+    public static final ItemStack ROAD_TO_CREA_BOOK_PART_2 = createRoadToCreaBook(1);
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RoadToCrea.MODID);
 
@@ -51,14 +52,14 @@ public class ModItems {
     public static final RegistryObject<Item> TOOL_ROD = ITEMS.register("tool_rod", () -> new Item(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB)));
     public static final RegistryObject<Item> UNIVERSE_ESSENCE = ITEMS.register("universe_essence", () -> new UniverseEssenceItem(new Item.Properties().tab(RoadToCrea.ROADTOCREA_TAB).food(ModFoods.UNIVERSE_ESSENCE)));
 
-    private static ItemStack createRoadToCreaBook() {
+    private static ItemStack createRoadToCreaBook(int i) {
         ItemStack roadToCreaBook = Items.WRITTEN_BOOK.getDefaultInstance();
         CompoundTag nbt = new CompoundTag();
         nbt.putString("title","Road To Crea");
         nbt.putString("author", "?????");
         ListTag listTag = new ListTag();
-        addTextLanguage(listTag, getEnTextForRoadToCreaBook(), "English");
-        addTextLanguage(listTag, getFrTextForRoadToCreaBook(), "Français");
+        addTextLanguage(listTag, getEnTextForRoadToCreaBook()[i], "English");
+        addTextLanguage(listTag, getFrTextForRoadToCreaBook()[i], "Français");
         nbt.put("pages", listTag);
         roadToCreaBook.setTag(nbt);
         return roadToCreaBook;
@@ -71,8 +72,9 @@ public class ModItems {
         }
     }
 
-    private static String[] getEnTextForRoadToCreaBook() {
-        return new String[]{
+    private static String[][] getEnTextForRoadToCreaBook() {
+        return new String[][]{
+                {
                 "If you are reading this book, you are the universe's last hope. " +
                         "This one had become too unstable, between the pigs which became creeper at nightfall and the crafts which gave a random result, " +
                         "the universe can see that end is approaching.",
@@ -88,12 +90,41 @@ public class ModItems {
                 "So that you can pass the first layer of protection of the ultimate bedrock. " +
                         "The resources you will get should allow you to craft a cobblestone knife in order to recover meat from the living being present...",
                 "And yes, you unfortunately understood what that meant. " +
-                "If you're low on strength, resonate with the ultimate bedrock as much as possible by crouching over it."
+                        "If you're low on strength, resonate with the ultimate bedrock as much as possible by crouching over it."
+                },
+                {
+                "You made it, excellent that must have been so difficult." +
+                        "Now that you have collected this meat, you can eat it in order to regenerate your health.",
+                "Replenishing infinite health by feeding on your own meat may seem impossible, but don't underestimate the power of the essence of the universe!" +
+                        "You normally obtained a second universe essence in addition to the second part of the book.",
+                "I know it's a lot of responsibility on your shoulders but you are the only hope." +
+                        "In order to continue, you will need to successfully create a crafting table." +
+                        "For this, here are the different steps that should allow you to achieve this objective:",
+                "0) I advise you to consume the essence universe recover in order to increase the speed of resource harvesting.\n" +
+                        "1) create dirty cobblestone pebble\n" +
+                        "2) clean them by drying your tears.",
+                "3) combine tiny mud pebble to create mud pebble.\n" +
+                        "4) cut a meat into meat pieces\n" +
+                        "5) combine the piece of meat with the mud pebble in order to fertilize it.",
+                "6) wait until the final transformation of this one.\n" +
+                        "7) detach the moss which to push on it\n" +
+                        "8) fertilize the resulting moss ball\n" +
+                        "9) wait until the final transformation\n" +
+                        "10) collect the mangrove propagule on it\n" +
+                        "11) repeat the previous operation",
+                "12) make the different parts of the crafting table out of mangroves\n" +
+                        "13) craft the crafting table.\n" +
+                        "\n" +
+                        "I know it's tedious but the crafting table is too essential to do without.\n" +
+                        "\n" +
+                        "Good luck.."
+                }
         };
     }
 
-    private static String[] getFrTextForRoadToCreaBook() {
-        return new String[]{
+    private static String[][] getFrTextForRoadToCreaBook() {
+        return new String[][]{
+                {
                 "Si vous lisez ce livre c'est que vous êtes le dernier espoire de l'univers. " +
                         "Celui-ci était devenu trop instable, entre les cochon qui devenait creeper à la tomber de la nuit et les craft qui donnait un résultat aléatoire, " +
                         "l'univers voyez ça fin aprocher.",
@@ -109,6 +140,34 @@ public class ModItems {
                         "Les resources que vous obtiendrai devrait vous permettre de crafter un couteau en cobblestone afin de récupérer de la viande sur l'être vivant présent...",
                 "Et Ouais, vous avez malheureusement bien compris ce que ceci signifier. " +
                         "Si la force vous manque entrer le plus possible en résonance avec l'ultimate bedrock en vous accroupissant au dessus de celle ci."
+                },
+                {
+                "Vous avez réussie, excellent cela à du être si difficile. " +
+                        "Maintenant que vous avez récupérer se bout de viande, vous pouvez le manger afin de régénérer votre santé. ",
+                "Régénérer sa santé à l'infini en se nourissant de ça propre viande peut sembler impossible, mais ne sous estimer pas le pouvoir de l'essence de l'univers! " +
+                        "Vous avez normalement obtenue une seconde essence de l'univers en plus de la seconde partie du livre.",
+                "Je sais que cela fait beaucoup de responsabiliter sur vos épaules mais vous êtes l'unique éspoire. " +
+                        "Afin de continuer, il va vous falloir réussir à créer une table de craft. " +
+                        "Pour cela voici les différentes étape qui devrait vous permettent d'atteindre cette objectif :",
+                "0) Je vous conseille de consommer l'univers essence récupérer afin d'augmenter la vitesse de récolte des ressources.\n" +
+                        "1) créer des morceaux de pierre sale\n" +
+                        "2) les nettoyer en séchant vos larmes.",
+                "3) regrouper les petit morceaux de boue afin d'en créer des morceaux légérement plus grand.\n" +
+                        "4) découper un morceaux de viande en petit morceaux\n" +
+                        "5) combiner le petit morceaux de viande avec le morceaux de boue afin de fertiliser celui-ci.",
+                "6) patienter jusqu'a la transformation final de celui-ci.\n" +
+                        "7) détacher la mousse qui à pousser dessus\n" +
+                        "8) fertiliser la boule de mousse obtenue\n" +
+                        "9) patienter jusqu'a la transformation final\n" +
+                        "10) récupérer la pousse de mangrove présente dessus\n" +
+                        "11) répéter les opération précédente",
+                "12) fabriquer les différente partie de la table de craft en mangrove\n" +
+                        "13) fabriquer la table de craft.\n" +
+                        "\n" +
+                        "Je sais que cela est fastidieux mais la table de craft et trop indispensable pour s'en passer.\n" +
+                        "\n" +
+                        "Bon courage.."
+                }
         };
     }
 }

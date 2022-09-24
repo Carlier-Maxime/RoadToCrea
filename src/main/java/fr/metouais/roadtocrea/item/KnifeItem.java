@@ -1,13 +1,18 @@
 package fr.metouais.roadtocrea.item;
 
+import fr.metouais.roadtocrea.RoadToCrea;
 import fr.metouais.roadtocrea.init.ModBlocks;
 import fr.metouais.roadtocrea.init.ModEffects;
 import fr.metouais.roadtocrea.init.ModItems;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.game.ClientboundCustomSoundPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -35,7 +40,7 @@ public class KnifeItem extends SwordItem {
     @Override
     public @NotNull InteractionResult useOn(UseOnContext useOnContext) {
         Player player = useOnContext.getPlayer();
-        if (player == null) return super.useOn(useOnContext);
+        if (!(player instanceof ServerPlayer)) return super.useOn(useOnContext);
         Level level = useOnContext.getLevel();
         if (player.isCrouching() && level.getBlockState(player.blockPosition().below()).getBlock().equals(ModBlocks.ULTIMATE_BEDROCK.get())) {
             player.hurt(new DamageSource("knife"), this.getDamage()*3);
@@ -46,8 +51,15 @@ public class KnifeItem extends SwordItem {
             player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 100));
             player.addEffect(new MobEffectInstance(ModEffects.SORROW.get(), 500));
             BlockPos pos = player.blockPosition();
+            ServerPlayer serverPlayer = (ServerPlayer) player;
+            if (serverPlayer.getStats().getValue(Stats.ITEM_PICKED_UP.get(ModItems.RAW_HUMAN_MEAT.get())) < 1) {
+                level.addFreshEntity(new ItemEntity(level,pos.getX(), pos.getY(), pos.getZ(), ModItems.UNIVERSE_ESSENCE.get().getDefaultInstance()));
+                level.addFreshEntity(new ItemEntity(level,pos.getX(), pos.getY(), pos.getZ(), ModItems.ROAD_TO_CREA_BOOK_PART_2));
+            }
             level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), ModItems.RAW_HUMAN_MEAT.get().getDefaultInstance()));
             useOnContext.getItemInHand().hurtAndBreak(4, player, (param) -> param.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+            player.setInvulnerable(false);
+            player.invulnerableTime = 0;
         }
         return super.useOn(useOnContext);
     }
